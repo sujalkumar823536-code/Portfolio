@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujal Kumar — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <span class="dot"></span>
+        <h2>Portfolio</h2><span class="orange-dot"></span>
+      </div>
+      <div>
+        <nav>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <canvas class="hero-animation" id="hero-animation" aria-hidden="true"></canvas>
+    <div class="wrap">
+
+      <!-- HERO -->
+      <div class="hero-heading">
+        <h1>Hii, I'm</h1>
+        <h1 class="hi">Sujal</h1>
+      </div>
+      <div class="hero-visual">
+        <a class="btn btn-solid download-resume" href="./static/Resume.pdf" download>Download resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects-section" id="projects">
+
+    <div class="section-title">
+      <div class="section-tag">🧑‍💻 My Work</div>
+      <h2>Featured <span>Projects</span></h2>
+      <p class="section-subtitle">
+        A collection of projects I've built while exploring web development,
+        machine learning and AI.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- FEATURED PROJECT -->
+      <div class="project-card featured" onclick="openProject('hotel.html')">
+
+        <div class="project-image">
+          <img src="./static/p1.jpeg" alt="Hotel Management System">
+
+          <div class="project-overlay">
+            <div class="view-project">
+              View Project <span>↗</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <div>
+            <span class="project-number">01</span>
+            <h3>Hotel Management System</h3>
+          </div>
+
+          <p>
+            A full-stack hotel booking platform built with Django,
+            Bootstrap and PostgreSQL.
+          </p>
+
+          <div class="tech-stack">
+            <span>Django</span>
+            <span>Python</span>
+            <span>MySQL</span>
+            <span>Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- PROJECT 2 -->
+      <div class="project-card" onclick="openProject('movie.html')">
+
+        <div class="project-image">
+          <img src="./static/p2.png" alt="Movie Recommendation System">
+
+          <div class="project-overlay">
+            <div class="view-project">
+              View Project <span>↗</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <span class="project-number">02</span>
+
+          <h3>Movie Recommendation System</h3>
+
+          <p>
+            Content-based movie recommendation system using
+            TF-IDF and Machine Learning.
+          </p>
+
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>ML</span>
+            <span>Streamlit</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- PROJECT 3 -->
+      <div class="project-card" onclick="">
+
+        <div class="project-image">
+          <img src="images/chatbot.png" alt="AI Chatbot">
+
+          <div class="project-overlay">
+            <div class="view-project">
+              View Project <span>↗</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <span class="project-number">03</span>
+
+          <h3>Multi-Agent AI Chatbot</h3>
+
+          <p>
+            AI chatbot architecture using FastAPI and
+            multiple specialized agents.
+          </p>
+
+          <div class="tech-stack">
+            <span>FastAPI</span>
+            <span>Python</span>
+            <span>ML</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section class="experience-section" id="experience">
+
+    <div class="section-tag">💼 My Career Overview</div>
+    <h2>Professional Work Experience</h2>
+
+    <div class="experience-timeline">
+
+      <!-- Animated line -->
+      <div class="timeline-line">
+        <div class="timeline-progress"></div>
+      </div>
+
+      <!-- Experience 1 -->
+      <div class="experience-item">
+        <div class="experience-icon">
+          <i class="fas fa-code"></i>
+        </div>
+
+        <div class="experience-content">
+          <h3>Python Developer Intern</h3>
+          <span class="experience-date">📅 May 2025 - June 2025</span>
+
+          <h4>What I Work On</h4>
+
+          <ul>
+            <li>Developed a Content-based movie recommendation system using Python, DSA and machine learning concepts.
+            </li>
+            <li>Built an interactive Streamlit web interface for displaying movie recommendations.</li>
+            <li>Performed data preprocessing and manipulation using Python and Pandas.</li>
+            <li>Applied fundamental Machine Learning concepts, including classification, regression, and model
+              evaluation.</li>
+            <li>Documented the development process and maintained structured Python code.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience 2 -->
+      <div class="experience-item">
+        <div class="experience-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+
+        <div class="experience-content">
+          <h3>Full Stack Developer</h3>
+          <span class="experience-date">📅 May 2023 - June 2023</span>
+
+          <h4>What I Work On</h4>
+
+          <ul>
+            <li>Developed a full-stack Hotel Management System using Python and Django.</li>
+            <li>Designed responsive web interfaces using HTML, CSS, Bootstrap, and JavaScript.</li>
+            <li>Implemented backend functionality using Django ORM and MySQL.</li>
+            <li>Integrated secure user authentication for login and registration.</li>
+            <li>Worked across both frontend and backend development to build an end-to-end web application.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SKILLS SECTION ================= -->
+
+  <section class="skills-section" id="skills">
+
+    <div class="skills-heading">
+
+      <span class="skills-badge">
+        ✦ What I Bring to the Table
+      </span>
+
+      <h2>
+        My Skills & <span>Expertise</span>
+      </h2>
+
+      <p>
+        Technologies and tools I use to build modern,
+        scalable and intelligent applications.
+      </p>
+
+    </div>
+
+
+    <div class="skills-container">
+
+      <!-- Python -->
+      <div class="skill-card python-skill-card">
+        <div class="python-skill-art" aria-label="Animated Python logo">
+          <div class="python-ground"></div>
+          <div class="python-orbit">
+            <div class="python-logo-wrap">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="pythonBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4b8bd4" />
+                    <stop offset="55%" stop-color="#2f6fb3" />
+                    <stop offset="100%" stop-color="#1a3f66" />
+                  </linearGradient>
+                  <linearGradient id="pythonYellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffe873" />
+                    <stop offset="55%" stop-color="#ffd43b" />
+                    <stop offset="100%" stop-color="#c99a00" />
+                  </linearGradient>
+                  <filter id="pythonSoftShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35" />
+                  </filter>
+                </defs>
+                <path filter="url(#pythonSoftShadow)" fill="url(#pythonBlueGradient)" d="M100 12 C70 12 55 22 55 42 L55 62 C55 68 59 72 65 72 L118 72 L118 80 L65 80 C40 80 22 96 22 122 C22 148 40 164 65 164 L82 164 L82 140 C82 128 90 120 102 120 L138 120 C156 120 168 108 168 92 L168 42 C168 22 148 12 118 12 Z" />
+                <circle cx="72" cy="40" r="8" fill="#0b1020" />
+                <path filter="url(#pythonSoftShadow)" fill="url(#pythonYellowGradient)" d="M100 188 C130 188 145 178 145 158 L145 138 C145 132 141 128 135 128 L82 128 L82 120 L135 120 C160 120 178 104 178 78 C178 52 160 36 135 36 L118 36 L118 60 C118 72 110 80 98 80 L62 80 C44 80 32 92 32 108 L32 158 C32 178 52 188 82 188 Z" />
+                <circle cx="128" cy="160" r="8" fill="#0b1020" />
+              </svg>
+            </div>
+          </div>
+          
+        </div>
+
+        <h3 class="python-caption">Python</h3>
+        <p>Developer</p>
+      </div>
+
+
+      <!-- Java -->
+      <div class="skill-card java-skill-card">
+        <div class="java-skill-art" aria-label="Animated Java logo">
+          <div class="java-ground"></div>
+          <div class="java-orbit">
+            <div class="java-logo-wrap">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="javaBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2a3140" />
+                    <stop offset="55%" stop-color="#171c27" />
+                    <stop offset="100%" stop-color="#0a0d14" />
+                  </linearGradient>
+                  <linearGradient id="javaBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff9a3c" />
+                    <stop offset="100%" stop-color="#b23e00" />
+                  </linearGradient>
+                  <linearGradient id="javaSteamGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#ff6a1a" />
+                    <stop offset="100%" stop-color="#ff9a3c" />
+                  </linearGradient>
+                  <linearGradient id="javaCupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6fa3d8" />
+                    <stop offset="100%" stop-color="#1f3a57" />
+                  </linearGradient>
+                  <linearGradient id="javaTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff9a3c" />
+                    <stop offset="100%" stop-color="#ff6a1a" />
+                  </linearGradient>
+                  <filter id="javaSoftShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4" />
+                  </filter>
+                </defs>
+                <rect x="6" y="6" width="188" height="188" rx="34" fill="url(#javaBorderGradient)" opacity="0.9" />
+                <rect x="12" y="12" width="176" height="176" rx="30" fill="url(#javaBadgeGradient)" />
+                <path d="M20 40 C40 18 70 14 96 14 L60 14 C36 14 20 26 20 46 Z" fill="#ffffff" opacity="0.12" />
+                <g filter="url(#javaSoftShadow)">
+                  <path d="M96 30 C84 44 84 56 96 66 C108 76 108 88 96 100" stroke="url(#javaSteamGradient)" stroke-width="9" fill="none" stroke-linecap="round" />
+                  <path d="M118 44 C108 56 108 66 118 76 C128 86 128 96 118 106" stroke="url(#javaSteamGradient)" stroke-width="9" fill="none" stroke-linecap="round" />
+                </g>
+                <g filter="url(#javaSoftShadow)">
+                  <path d="M60 96 C80 108 130 108 150 96" stroke="url(#javaCupGradient)" stroke-width="10" fill="none" stroke-linecap="round" />
+                  <path d="M55 112 C78 126 132 126 155 112" stroke="url(#javaCupGradient)" stroke-width="10" fill="none" stroke-linecap="round" />
+                  <path d="M50 128 C76 144 134 144 160 128" stroke="url(#javaCupGradient)" stroke-width="10" fill="none" stroke-linecap="round" />
+                </g>
+                <text x="100" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="42" fill="url(#javaTextGradient)" filter="url(#javaSoftShadow)">Java</text>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 class="java-caption">Java</h3>
+        <p>Developer</p>
+      </div>
+
+
+      <!-- JavaScript -->
+      <div class="skill-card javascript-skill-card">
+        <div class="javascript-skill-art" aria-label="Animated JavaScript logo">
+          <div class="javascript-ground"></div>
+          <div class="javascript-orbit">
+            <div class="javascript-logo-wrap">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="javascriptBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffe066" />
+                    <stop offset="55%" stop-color="#ffd21a" />
+                    <stop offset="100%" stop-color="#f0c400" />
+                  </linearGradient>
+                  <linearGradient id="javascriptBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fff3b0" />
+                    <stop offset="100%" stop-color="#c99400" />
+                  </linearGradient>
+                  <linearGradient id="javascriptGlyphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2b2f3a" />
+                    <stop offset="55%" stop-color="#12141c" />
+                    <stop offset="100%" stop-color="#05060a" />
+                  </linearGradient>
+                  <linearGradient id="javascriptGlyphSide" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#c99400" />
+                    <stop offset="100%" stop-color="#7a5900" />
+                  </linearGradient>
+                  <radialGradient id="javascriptGlassShine" cx="35%" cy="25%" r="75%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5" />
+                    <stop offset="45%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="javascriptInnerShade" x1="0%" y1="60%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0" />
+                    <stop offset="100%" stop-color="#8c6400" stop-opacity="0.35" />
+                  </linearGradient>
+                  <filter id="javascriptSoftShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45" />
+                  </filter>
+                  <clipPath id="javascriptBadgeClip">
+                    <rect x="12" y="12" width="176" height="176" rx="30" />
+                  </clipPath>
+                </defs>
+                <rect x="6" y="6" width="188" height="188" rx="34" fill="url(#javascriptBorderGradient)" opacity="0.9" />
+                <rect x="12" y="12" width="176" height="176" rx="30" fill="url(#javascriptBadgeGradient)" />
+                <g clip-path="url(#javascriptBadgeClip)">
+                  <rect x="12" y="12" width="176" height="176" fill="url(#javascriptGlassShine)" />
+                  <path d="M22 52 C24 32 34 20 54 16 C40 22 30 34 28 52 Z" fill="#ffffff" opacity="0.45" />
+                  <rect x="12" y="130" width="176" height="58" fill="url(#javascriptInnerShade)" />
+                </g>
+                <text x="101" y="139" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="98" fill="url(#javascriptGlyphSide)">JS</text>
+                <text x="99" y="136" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="98" fill="url(#javascriptGlyphGradient)" filter="url(#javascriptSoftShadow)">JS</text>
+                <ellipse cx="76" cy="78" rx="10" ry="5" fill="#ffffff" opacity="0.25" />
+              </svg>
+            </div>
+          </div>
+       </div>
+
+        <h3 class="javascript-caption">JavaScript</h3>
+        <p>Developer</p>
+      </div>
+
+
+      <!-- Django -->
+      <div class="skill-card django-skill-card">
+        <div class="django-skill-art" aria-label="Animated Django logo">
+          <div class="django-ground"></div>
+          <div class="django-orbit">
+            <div class="django-logo-wrap">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="djangoBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#123527" />
+                    <stop offset="55%" stop-color="#0a2018" />
+                    <stop offset="100%" stop-color="#05120c" />
+                  </linearGradient>
+                  <linearGradient id="djangoBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#5fd9a0" />
+                    <stop offset="100%" stop-color="#0c6b3f" />
+                  </linearGradient>
+                  <linearGradient id="djangoGlyphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="55%" stop-color="#f4f1e6" />
+                    <stop offset="100%" stop-color="#d8d3bf" />
+                  </linearGradient>
+                  <linearGradient id="djangoGlyphSide" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0c6b3f" />
+                    <stop offset="100%" stop-color="#031a10" />
+                  </linearGradient>
+                  <radialGradient id="djangoGlassShine" cx="35%" cy="25%" r="75%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16" />
+                    <stop offset="45%" stop-color="#ffffff" stop-opacity="0.04" />
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="djangoInnerShade" x1="0%" y1="60%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.35" />
+                  </linearGradient>
+                  <filter id="djangoSoftShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4" />
+                  </filter>
+                  <clipPath id="djangoBadgeClip">
+                    <rect x="12" y="12" width="176" height="176" rx="30" />
+                  </clipPath>
+                </defs>
+                <rect x="6" y="6" width="188" height="188" rx="34" fill="url(#djangoBorderGradient)" opacity="0.9" />
+                <rect x="12" y="12" width="176" height="176" rx="30" fill="url(#djangoBadgeGradient)" />
+                <g clip-path="url(#djangoBadgeClip)">
+                  <rect x="12" y="12" width="176" height="176" fill="url(#djangoGlassShine)" />
+                  <path d="M22 52 C24 32 34 20 54 16 C40 22 30 34 28 52 Z" fill="#ffffff" opacity="0.22" />
+                  <rect x="12" y="130" width="176" height="58" fill="url(#djangoInnerShade)" />
+                </g>
+                <text x="101" y="121" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="108" fill="url(#djangoGlyphSide)">dj</text>
+                <text x="99" y="118" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="108" fill="url(#djangoGlyphGradient)" filter="url(#djangoSoftShadow)">dj</text>
+                <ellipse cx="80" cy="60" rx="10" ry="5" fill="#ffffff" opacity="0.35" />
+                <text x="101" y="167" text-anchor="middle" font-family="Trebuchet MS, Segoe UI, sans-serif" font-weight="bold" font-size="29" letter-spacing="1" fill="#0c6b3f">django</text>
+                <text x="100" y="165" text-anchor="middle" font-family="Trebuchet MS, Segoe UI, sans-serif" font-weight="bold" font-size="29" letter-spacing="1" fill="url(#djangoGlyphGradient)" filter="url(#djangoSoftShadow)">django</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="django-caption">Django</h3>
+        <p>Backend</p>
+      </div>
+
+      <!-- SQL -->
+      <div class="skill-card sql-skill-card">
+        <div class="sql-skill-art" aria-label="Animated SQL database logo">
+          <div class="sql-ground"></div>
+          <div class="sql-orbit">
+            <div class="sql-logo-wrap">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sqlBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#123a6e" />
+                    <stop offset="55%" stop-color="#082246" />
+                    <stop offset="100%" stop-color="#03101f" />
+                  </linearGradient>
+                  <linearGradient id="sqlBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#bfe4ff" />
+                    <stop offset="100%" stop-color="#1f6fc9" />
+                  </linearGradient>
+                  <linearGradient id="sqlGlyphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f2f5f9" />
+                    <stop offset="55%" stop-color="#c7d0db" />
+                    <stop offset="100%" stop-color="#8b97a5" />
+                  </linearGradient>
+                  <linearGradient id="sqlGlyphSide" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#1f7fdd" />
+                    <stop offset="100%" stop-color="#0a3a7a" />
+                  </linearGradient>
+                  <linearGradient id="sqlDrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f2f5f9" />
+                    <stop offset="35%" stop-color="#8b97a5" />
+                    <stop offset="55%" stop-color="#f2f5f9" />
+                    <stop offset="100%" stop-color="#8b97a5" />
+                  </linearGradient>
+                  <linearGradient id="sqlTopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="50%" stop-color="#c7d0db" />
+                    <stop offset="100%" stop-color="#8b97a5" />
+                  </linearGradient>
+                  <radialGradient id="sqlLedGlow" cx="50%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#dff3ff" />
+                    <stop offset="55%" stop-color="#4fb3ff" />
+                    <stop offset="100%" stop-color="#0a4a99" />
+                  </radialGradient>
+                  <radialGradient id="sqlGlassShine" cx="35%" cy="25%" r="75%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+                    <stop offset="45%" stop-color="#ffffff" stop-opacity="0.08" />
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="sqlInnerShade" x1="0%" y1="55%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0" />
+                    <stop offset="100%" stop-color="#000a1e" stop-opacity="0.4" />
+                  </linearGradient>
+                  <filter id="sqlSoftShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45" />
+                  </filter>
+                  <clipPath id="sqlBadgeClip">
+                    <rect x="12" y="12" width="176" height="176" rx="30" />
+                  </clipPath>
+                </defs>
+                <rect x="6" y="6" width="188" height="188" rx="34" fill="url(#sqlBorderGradient)" opacity="0.9" />
+                <rect x="12" y="12" width="176" height="176" rx="30" fill="url(#sqlBadgeGradient)" />
+                <g clip-path="url(#sqlBadgeClip)">
+                  <rect x="12" y="12" width="176" height="176" fill="url(#sqlGlassShine)" />
+                  <path d="M22 52 C24 32 34 20 54 16 C40 22 30 34 28 52 Z" fill="#ffffff" opacity="0.3" />
+                  <rect x="12" y="128" width="176" height="60" fill="url(#sqlInnerShade)" />
+                </g>
+                <g filter="url(#sqlSoftShadow)">
+                  <ellipse cx="100" cy="98" rx="46" ry="15" fill="url(#sqlDrumGradient)" />
+                  <rect x="54" y="84" width="92" height="20" fill="url(#sqlDrumGradient)" />
+                  <ellipse cx="100" cy="84" rx="46" ry="15" fill="url(#sqlDrumGradient)" />
+                  <circle cx="128" cy="93" r="4.5" fill="url(#sqlLedGlow)" />
+                  <rect x="54" y="60" width="92" height="20" fill="url(#sqlDrumGradient)" />
+                  <ellipse cx="100" cy="60" rx="46" ry="15" fill="url(#sqlDrumGradient)" />
+                  <circle cx="128" cy="69" r="4.5" fill="url(#sqlLedGlow)" />
+                  <rect x="54" y="38" width="92" height="20" fill="url(#sqlDrumGradient)" />
+                  <ellipse cx="100" cy="38" rx="46" ry="15" fill="url(#sqlTopGradient)" />
+                  <circle cx="128" cy="47" r="4.5" fill="url(#sqlLedGlow)" />
+                </g>
+                <text x="101" y="160" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="46" letter-spacing="1" fill="url(#sqlGlyphSide)">SQL</text>
+                <text x="99" y="157" text-anchor="middle" font-family="Arial Rounded MT Bold, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="46" letter-spacing="1" fill="url(#sqlGlyphGradient)" filter="url(#sqlSoftShadow)">SQL</text>
+                <ellipse cx="78" cy="140" rx="8" ry="4" fill="#ffffff" opacity="0.4" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="python-caption">MySQL</h3>
+        <p>Database</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-heading">
+      <div class="contact-heading-badge">💬 Have questions or ideas? Let's talk! 🚀</div>
+      <h2>Get in Touch - Let's Connect</h2>
+    </div>
+
+    <div class="contact-stage">
+      <div id="contact-canvas"></div>
+      <div class="contact-stage-copy">
+        <h2>Let's build something.</h2>
+      </div>
+    </div>
+
+    <div class="contact-panel">
+      <div class="contact-panel-inner">  
+        <form id="contact-form">
+          <div class="contact-field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required autocomplete="name">
+          </div>
+          <div class="contact-field">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" required autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="contact-submit">Send message</button>
+          <p class="contact-status" id="contact-status">Message ready — connect this form to your backend or a service like Formspree to deliver it.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/sujal_kumar._" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://github.com/sujalkumar823536-code" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://x.com/Sujal_8235" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/sujal-kumar-50206a37a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Sujal Kumar.</p>
+  </footer>
+
+  <script src="./scrpt.js"></script>
+
+ 
+</body>
+
+</html>
