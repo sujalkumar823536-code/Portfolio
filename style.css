@@ -2371,8 +2371,46 @@
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       .hero {
-        grid-template-columns: 1fr;
-        padding-top: 48px;
+        height: auto;
+        min-height: auto;
+        padding-top: 0;
+      }
+
+      .hero .wrap {
+        display: block;
+        height: auto;
+        padding-top: 14px;
+        padding-left: 0;
+      }
+
+      .hero-heading {
+        position: static;
+        padding-top: 0;
+        margin: 0;
+      }
+
+      .hero-heading h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+        line-height: 0.82;
+        white-space: normal;
+      }
+
+      .hero-heading .hi {
+        font-size: clamp(3.8rem, 19vw, 6.5rem);
+        line-height: 0.8;
+      }
+
+      .hero-visual {
+        position: relative;
+        max-width: 100%;
+        margin-top: 10px;
+      }
+
+      .hero .download-resume {
+        position: static;
+        display: inline-flex;
+        margin-top: 18px;
+        margin-left: 0;
       }
 
       .about-grid {
