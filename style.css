@@ -2372,7 +2372,17 @@
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        padding-top: 48px;
+        padding-top: 12px;
+      }
+
+      .hero .wrap {
+        display: block;
+        padding-top: 0;
+      }
+
+      .hero-heading {
+        margin-top: 12px;
+        padding-top: 0;
       }
 
       .about-grid {
