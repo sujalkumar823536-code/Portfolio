@@ -186,19 +186,25 @@
     }
 
  .hero .wrap {
-    position: static;
+    position: relative;
     z-index: 1;
     height: 100%;
     min-height: 0;
-    display: flex;
-    align-items: center;
+    display: block;
+    padding: 0;
 }
 
     .hero-heading {
+      position: absolute;
+      left: 10px;
+      bottom: 170px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 3;
     }
 
     .hero-heading h1 {
@@ -2366,7 +2372,20 @@
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        padding-top: 48px;
+        padding-top: 12px;
+      }
+
+      .hero .wrap {
+        display: block;
+        padding-top: 0;
+      }
+
+      .hero-heading {
+        position: static;
+        left: auto;
+        bottom: auto;
+        margin-top: 12px;
+        padding-top: 0;
       }
 
       .about-grid {
@@ -2412,15 +2431,21 @@
         height: 100%;
         min-height: 0;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: space-between;
         position: static;
+        padding-top: 18px;
+        padding-left: 8px;
+        padding-right: 0;
     }
 
     /* Hero heading */
     .hero-heading {
         position: relative;
         z-index: 3;
-        transform: translateY(-10px);
+        transform: none;
+        margin: 0 0 0 0;
+        padding-top: 44px;
     }
 
     .hero-heading h1 {
@@ -2510,11 +2535,11 @@
         max-height: 50vh;
     }
 }
-/* RESUME BUTTON - BOTTOM RIGHT OF HOME */
+/* RESUME BUTTON - RIGHT SIDE OF HOME */
 
 .hero .download-resume {
     position: absolute;
-    right: 50px;
-    bottom: 25px;
+    right: 10px;
+    bottom: 22px;
     z-index: 9999;
 }

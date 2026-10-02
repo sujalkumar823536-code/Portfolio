@@ -222,10 +222,39 @@
     }
 
     if (contactForm) {
-      contactForm.addEventListener('submit', (event) => {
+      const status = document.querySelector('#contact-status');
+
+      contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        document.querySelector('#contact-status').classList.add('show');
-        contactForm.reset();
+
+        const formData = new FormData(contactForm);
+        const payload = Object.fromEntries(formData.entries());
+
+        status.classList.add('show');
+        status.textContent = 'Sending...';
+        status.style.color = '#f1c27d';
+
+        try {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json();
+
+          status.textContent = result.message || 'Message sent successfully!';
+          status.style.color = result.success ? '#7ef0b1' : '#ff9a9a';
+
+          if (result.success) {
+            contactForm.reset();
+          }
+        } catch (error) {
+          status.textContent = 'Something went wrong. Please try again later.';
+          status.style.color = '#ff9a9a';
+        }
       });
     }
 
