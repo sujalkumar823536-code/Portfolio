@@ -235,7 +235,7 @@
         status.style.color = '#f1c27d';
 
         try {
-          const response = await fetch('https://YOUR-RENDER-URL.onrender.com/api/contact', {
+          const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
