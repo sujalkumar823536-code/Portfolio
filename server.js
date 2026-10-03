@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const { connectToDatabase, saveContactMessage } = require('./database');
+const { connectToDatabase, saveContactMessage, exportContactMessages } = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -86,6 +86,7 @@ app.use((req, res) => {
 
 async function startServer() {
   await connectToDatabase();
+  await exportContactMessages();
 
   app.listen(PORT, () => {
     console.log(`Portfolio backend running at http://127.0.0.1:${PORT}`);

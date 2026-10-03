@@ -1,8 +1,12 @@
+const fs = require('fs/promises');
+const path = require('path');
 const { MongoClient } = require('mongodb');
 
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 const databaseName = process.env.MONGODB_DB || 'portfolio';
+const messagesJsonPath = path.join(__dirname, 'message.json');
 let connectionPromise;
+let exportPromise = Promise.resolve();
 
 async function getContactMessagesCollection() {
   if (!connectionPromise) {
@@ -31,16 +35,23 @@ async function saveContactMessage({ name, email, message }) {
     createdAt: new Date()
   });
 
+  await exportContactMessages();
+
   return { success: true, id: result.insertedId };
 }
 
-async function getContactMessages() {
-  const collection = await getContactMessagesCollection();
-  return collection.find().sort({ createdAt: -1 }).toArray();
+function exportContactMessages() {
+  exportPromise = exportPromise.catch(() => {}).then(async () => {
+    const collection = await getContactMessagesCollection();
+    const messages = await collection.find().sort({ createdAt: -1 }).toArray();
+    await fs.writeFile(messagesJsonPath, `${JSON.stringify(messages, null, 2)}\n`);
+  });
+
+  return exportPromise;
 }
 
 module.exports = {
   connectToDatabase,
   saveContactMessage,
-  getContactMessages
+  exportContactMessages
 };
