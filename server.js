@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const { saveContactMessage, exportContactMessages } = require('./database');
+const { connectToDatabase, saveContactMessage } = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -85,7 +85,7 @@ app.use((req, res) => {
 });
 
 async function startServer() {
-  await exportContactMessages();
+  await connectToDatabase();
 
   app.listen(PORT, () => {
     console.log(`Portfolio backend running at http://127.0.0.1:${PORT}`);
@@ -93,6 +93,6 @@ async function startServer() {
 }
 
 startServer().catch((error) => {
-  console.error('Could not initialize message export:', error);
+  console.error('Could not connect to MongoDB:', error);
   process.exitCode = 1;
 });
