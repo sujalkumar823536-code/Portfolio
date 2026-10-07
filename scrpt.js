@@ -1,4 +1,4 @@
- const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds with python + django. trains models on the side.\nstatus: shipping.";
+const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds with python + django. trains models on the side.\nstatus: shipping.";
     const el = document.getElementById('typed-out');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -441,3 +441,19 @@
       card.addEventListener('touchcancel', restoreOrbit, { passive: true });
     });
 
+    /* Experience: each entry lights up and rises in when scrolled to */
+    const expSection = document.querySelector('.experience-section');
+    const expItems = document.querySelectorAll('.experience-item');
+
+    if (expSection && expItems.length && 'IntersectionObserver' in window && !reduced) {
+      expSection.classList.add('js-reveal');
+      const expObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            expObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      expItems.forEach((item) => expObserver.observe(item));
+    }
