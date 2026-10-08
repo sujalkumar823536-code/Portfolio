@@ -3240,3 +3240,350 @@
   background: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 0, 0.12), transparent 70%);
   pointer-events: none;
 }
+
+/* =========================================
+   CONTACT SECTION (redesign)
+========================================= */
+
+.contact-heading h2 span {
+  color: #ff6b00;
+}
+
+.contact-subtitle {
+  max-width: 560px;
+  margin: 14px auto 0;
+  color: #999;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* form card: same gradient border as the Experience cards */
+.contact-panel-inner {
+  max-width: 500px;
+  padding: 36px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(160deg, #141414, #0b0b0b) padding-box,
+    linear-gradient(135deg, rgba(255, 107, 0, 0.55), #242424 38%, #1c1c1c) border-box;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* availability pill */
+.contact-available {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(34, 178, 125, 0.09);
+  border: 1px solid rgba(34, 178, 125, 0.35);
+  color: #7ef0b1;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22b27d;
+  animation: contactPulse 2s ease-out infinite;
+}
+
+@keyframes contactPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 178, 125, 0.65); }
+  70%  { box-shadow: 0 0 0 10px rgba(34, 178, 125, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 178, 125, 0); }
+}
+
+/* floating labels */
+.contact-field {
+  position: relative;
+  gap: 0;
+}
+
+.contact-field input,
+.contact-field textarea {
+  padding: 24px 14px 8px;
+  border-radius: 12px;
+}
+
+.contact-field textarea {
+  min-height: 130px;
+}
+
+.contact-field label {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  color: #8B93A1;
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.contact-field input:focus + label,
+.contact-field input:not(:placeholder-shown) + label,
+.contact-field textarea:focus + label,
+.contact-field textarea:not(:placeholder-shown) + label {
+  top: 7px;
+  font-size: 0.7rem;
+  color: #ff9a3c;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: #ff6b00;
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.16);
+}
+
+/* send button with loading / sent states */
+.contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 18px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #ff6b00, #ffb347);
+  color: #1a0d00;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease, filter 0.2s ease;
+}
+
+.contact-submit:hover {
+  background: linear-gradient(120deg, #ff6b00, #ffb347);
+  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.contact-submit:disabled {
+  cursor: default;
+  filter: saturate(0.8);
+}
+
+.contact-submit.is-loading .submit-icon {
+  animation: contactSpin 0.9s linear infinite;
+}
+
+.contact-submit.is-sent,
+.contact-submit.is-sent:hover {
+  background: #22b27d;
+  color: #04140f;
+  box-shadow: 0 12px 30px rgba(34, 178, 125, 0.35);
+}
+
+@keyframes contactSpin {
+  to { transform: rotate(360deg); }
+}
+
+.contact-status a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* direct contact cards */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #1f1f1f;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 16px;
+  border: 1px solid #242424;
+  background: #101010;
+  color: #E8ECF1;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  border-color: #ff6b00;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(255, 107, 0, 0.15);
+  outline: none;
+}
+
+.contact-link-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b00, #ffb347);
+  color: #000;
+  font-size: 16px;
+}
+
+.contact-link-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.contact-link-text > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-link-text small {
+  color: #ff6b00;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.copy-hint {
+  color: #8B93A1;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.copy-email.copied .copy-hint {
+  color: #7ef0b1;
+}
+
+/* social pills */
+.contact-socials {
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 20px 40px;
+}
+
+.contact-socials a {
+  width: auto;
+  height: auto;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+.contact-socials a i {
+  font-size: 1.05rem;
+}
+
+/* footer */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 22px 20px;
+  background: #000;
+  border-top: 1px solid #161616;
+  color: #8B93A1;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+.back-to-top {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #242424;
+  background: #101010;
+  color: #ddd;
+  text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  border-color: #ff6b00;
+  color: #ff6b00;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 860px) {
+  .contact-panel-inner {
+    padding: 26px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot,
+  .contact-submit.is-loading .submit-icon {
+    animation: none;
+  }
+}
+
+/* non-clickable info card (location) */
+.contact-link-static,
+.contact-link-static:hover {
+  cursor: default;
+  transform: none;
+  border-color: #242424;
+  box-shadow: none;
+}
+
+/* =========================================
+   SKILL CARDS: softer, roomier glow
+   (appended override - tweak --glow-spread / --glow-strength)
+========================================= */
+
+.skill-card.frame-card {
+  --glow-spread: 110px;   /* how far the glow reaches */
+  --glow-strength: 16%;   /* how bright it is (lower = subtler) */
+}
+
+/* thin, dim border instead of a bright line hugging the card */
+.skill-card.frame-card:hover {
+  border-color: color-mix(in srgb, var(--accent, #ff6b00) 40%, #1a1a1a);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    0 0 var(--glow-spread) color-mix(in srgb, var(--accent, #ff6b00) var(--glow-strength), transparent);
+}
+
+/* soft vignette: fades the picture's own bright halo toward the edges
+   and keeps the name readable, so the light feels like it sits behind the logo */
+.skill-card.frame-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 42%, transparent 55%, rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 38%);
+}
+
+/* tone the picture down a touch on hover so the glow doesn't blow out */
+.skill-card.frame-card:hover .frame-canvas {
+  filter: brightness(0.92) saturate(0.95);
+}
+.frame-canvas {
+  transition: filter 0.5s ease;
+}
+
+/* name plate underline: gentler glow */
+.frame-card h3::after {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent, #ff6b00) 55%, transparent);
+}

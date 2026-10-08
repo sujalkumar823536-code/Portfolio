@@ -212,7 +212,7 @@
             <li>Applied fundamental Machine Learning concepts, including classification, regression, and model evaluation.</li>
             <li>Built an interactive Streamlit web interface for displaying movie recommendations.</li>
           </ul>
-          <div class="exp-tags"><span>Python</span><span>Data Structures & Algorithms</span></div>
+          <div class="exp-tags"><span>Python</span><span>Data Structures &amp; Algorithms</span></div>
 
           <div class="cert-actions">
             <a class="cert-btn" href="./static/intern1.pdf" download="Sujal-Kumar-Python-Internship-Certificate.pdf">
@@ -354,10 +354,14 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-section" id="contact">
+  <!-- Your email is set in data-email below. It fills every email spot on the page. -->
+  <section class="contact-section" id="contact" data-email="sujalkumar823536@gmail.com">
     <div class="contact-heading">
       <div class="contact-heading-badge">💬 Have questions or ideas? Let's talk! 🚀</div>
-      <h2>Get in Touch - Let's Connect</h2>
+      <h2>Get in <span>Touch</span></h2>
+      <p class="contact-subtitle">
+        Have a project, an internship or a role in mind? Send a message and I'll reply as soon as I can.
+      </p>
     </div>
 
     <div class="contact-stage">
@@ -368,43 +372,82 @@
     </div>
 
     <div class="contact-panel">
-      <div class="contact-panel-inner">  
+      <div class="contact-panel-inner">
+
+        <div class="contact-available">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Open to internships and full-time roles
+        </div>
+
         <form id="contact-form">
           <div class="contact-field">
+            <input type="text" id="contact-name" name="name" placeholder=" " required autocomplete="name">
             <label for="contact-name">Name</label>
-            <input type="text" id="contact-name" name="name" required autocomplete="name">
           </div>
           <div class="contact-field">
+            <input type="email" id="contact-email" name="email" placeholder=" " required autocomplete="email">
             <label for="contact-email">Email</label>
-            <input type="email" id="contact-email" name="email" required autocomplete="email">
           </div>
           <div class="contact-field">
+            <textarea id="contact-message" name="message" placeholder=" " required></textarea>
             <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" required></textarea>
           </div>
-          <button type="submit" class="contact-submit">Send message</button>
-          <p class="contact-status" id="contact-status">Message sent successfully!</p>
+          <button type="submit" class="contact-submit">
+            <span class="submit-label">Send message</span>
+            <i class="fas fa-paper-plane submit-icon" aria-hidden="true"></i>
+          </button>
+          <p class="contact-status" id="contact-status" role="status" aria-live="polite">Message sent successfully!</p>
         </form>
+
+        <div class="contact-links">
+          <button type="button" class="contact-link copy-email">
+            <span class="contact-link-icon"><i class="fas fa-envelope"></i></span>
+            <span class="contact-link-text">
+              <small>Email</small>
+              <span data-email-text>sujalkumar823536@gmail.com</span>
+            </span>
+            <span class="copy-hint"><i class="far fa-copy"></i> Copy</span>
+          </button>
+
+          <a class="contact-link" href="./static/Resume.pdf" download>
+            <span class="contact-link-icon"><i class="fas fa-file-arrow-down"></i></span>
+            <span class="contact-link-text">
+              <small>Resume</small>
+              Download PDF
+            </span>
+          </a>
+
+          <a class="contact-link" href="tel:+916202220519">
+            <span class="contact-link-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-link-text">
+              <small>Phone</small>
+              <span>+91 6202220519</span>
+            </span>
+          </a>
+        </div>
+
       </div>
     </div>
 
     <div class="contact-socials" aria-label="Social links">
       <a href="https://www.instagram.com/sujal_kumar.__/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
+        <i class="fab fa-instagram"></i><span>Instagram</span>
       </a>
       <a href="https://github.com/sujalkumar823536-code" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <i class="fab fa-github"></i>
+        <i class="fab fa-github"></i><span>GitHub</span>
       </a>
       <a href="https://x.com/Sujal_8235" target="_blank" rel="noopener noreferrer" aria-label="X">
-        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-x-twitter"></i><span>Twitter</span>
       </a>
       <a href="https://www.linkedin.com/in/sujal-kumar-50206a37a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
       </a>
     </div>
   </section>
+
   <footer>
-    <p>© 2025 Sujal Kumar.</p>
+    <p>© <span id="year">2026</span> Sujal Kumar.</p>
+    <a class="back-to-top" href="#" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
   </footer>
 
   <script src="./scrpt.js"></script>

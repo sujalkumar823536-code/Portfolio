@@ -170,8 +170,8 @@ const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds wit
       scene.add(group);
 
       const geometry = new THREE.IcosahedronGeometry(2.1, 1);
-      group.add(new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0x00D9A3, wireframe: true, transparent: true, opacity: 0.55 })));
-      group.add(new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x4A9EFF, size: 0.045, transparent: true, opacity: 0.9 })));
+      group.add(new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xFF6B00, wireframe: true, transparent: true, opacity: 0.55 })));
+      group.add(new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xFFB347, size: 0.045, transparent: true, opacity: 0.9 })));
 
       const innerMesh = new THREE.Mesh(
         new THREE.IcosahedronGeometry(0.9, 0),
@@ -221,39 +221,109 @@ const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds wit
       animateContact();
     }
 
+    /* ---------- Contact: email, copy button, year ---------- */
+    const contactEmail = contactSection ? (contactSection.dataset.email || '') : '';
+    if (contactEmail) {
+      document.querySelectorAll('[data-email-text]').forEach((node) => { node.textContent = contactEmail; });
+    }
+
+    const yearNode = document.querySelector('#year');
+    if (yearNode) yearNode.textContent = new Date().getFullYear();
+
+    const copyButton = document.querySelector('.copy-email');
+    if (copyButton && contactEmail) {
+      const copyHint = copyButton.querySelector('.copy-hint');
+      const idleHint = copyHint.innerHTML;
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(contactEmail);
+        } catch (error) {
+          const temp = document.createElement('textarea');
+          temp.value = contactEmail;
+          document.body.appendChild(temp);
+          temp.select();
+          try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+          temp.remove();
+        }
+        copyButton.classList.add('copied');
+        copyHint.textContent = 'Copied!';
+        setTimeout(() => {
+          copyButton.classList.remove('copied');
+          copyHint.innerHTML = idleHint;
+        }, 2000);
+      });
+    }
+
+    /* ---------- Contact form ---------- */
+    // If the page is opened from Live Server / file://, talk to the Node server on port 3000
+    const API_BASE = (location.protocol === 'file:' || (['localhost', '127.0.0.1'].includes(location.hostname) && location.port !== '3000')) ? 'http://localhost:3000' : '';
     if (contactForm) {
       const status = document.querySelector('#contact-status');
+      const submitButton = contactForm.querySelector('.contact-submit');
+      const submitLabel = submitButton.querySelector('.submit-label');
+      const submitIcon = submitButton.querySelector('.submit-icon');
+
+      function resetButton() {
+        submitButton.disabled = false;
+        submitButton.classList.remove('is-loading', 'is-sent');
+        submitLabel.textContent = 'Send message';
+        submitIcon.className = 'fas fa-paper-plane submit-icon';
+      }
+
+      function showStatus(text, color) {
+        status.textContent = text;
+        status.style.color = color;
+        status.classList.add('show');
+      }
 
       contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+        if (submitButton.disabled) return;
 
-        const formData = new FormData(contactForm);
-        const payload = Object.fromEntries(formData.entries());
+        const payload = Object.fromEntries(new FormData(contactForm).entries());
 
-        status.classList.add('show');
-        status.textContent = 'Sending...';
-        status.style.color = '#f1c27d';
+        submitButton.disabled = true;
+        submitButton.classList.add('is-loading');
+        submitLabel.textContent = 'Sending...';
+        submitIcon.className = 'fas fa-circle-notch submit-icon';
+        status.classList.remove('show');
 
         try {
-          const response = await fetch('/api/contact', {
+          const response = await fetch(API_BASE + '/api/contact', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
+          // read as text first so an empty / non-JSON reply can't throw "Unexpected end of JSON input"
+          const raw = await response.text();
+          let result = {};
+          try { result = raw ? JSON.parse(raw) : {}; } catch (e) { result = {}; }
 
-          const result = await response.json();
-
-          status.textContent = result.message || 'Message sent successfully!';
-          status.style.color = result.success ? '#7ef0b1' : '#ff9a9a';
-
-          if (result.success) {
-            contactForm.reset();
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || 'Could not reach the server (status ' + response.status + '). Is `npm start` running?');
           }
+
+          submitButton.classList.remove('is-loading');
+          submitButton.classList.add('is-sent');
+          submitLabel.textContent = 'Message sent';
+          submitIcon.className = 'fas fa-check submit-icon';
+          showStatus(result.message || 'Message sent successfully! I will get back to you soon.', '#7ef0b1');
+          contactForm.reset();
+          setTimeout(resetButton, 3500);
         } catch (error) {
-          status.textContent = 'Something went wrong. Please try again later.';
-          status.style.color = '#ff9a9a';
+          resetButton();
+          showStatus((error && error.message ? error.message : 'Something went wrong.') + ' ', '#ff9a9a');
+
+          // fallback: let the visitor send the same message from their own mail app
+          if (contactEmail) {
+            const subject = encodeURIComponent('Portfolio message from ' + (payload.name || ''));
+            const body = encodeURIComponent((payload.message || '') + '\n\n' + (payload.name || '') + ' (' + (payload.email || '') + ')');
+            const link = document.createElement('a');
+            link.href = 'mailto:' + contactEmail + '?subject=' + subject + '&body=' + body;
+            link.textContent = 'Send it by email instead';
+            status.appendChild(link);
+          }
         }
       });
     }
