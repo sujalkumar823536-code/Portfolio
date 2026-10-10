@@ -326,7 +326,7 @@
       <div class="skill-card javascript-skill-card frame-card">
         <canvas class="frame-canvas" id="reactFrames" width="600" height="600" aria-label="Interactive 3D React logo"></canvas>
 
-        <h3 class="javascript-caption">React</h3>
+        <h3 class="javascript-caption">React.js</h3>
         <p>Developer</p>
       </div>
 
@@ -347,6 +347,14 @@
 
         <h3 class="python-caption">MySQL</h3>
         <p>Database</p>
+      </div>
+
+      <!-- Node.js -->
+      <div class="skill-card nodejs-skill-card frame-card">
+        <canvas class="frame-canvas" id="nodeFrames" width="600" height="600" aria-label="Interactive 3D Node.js logo"></canvas>
+
+        <h3 class="python-caption">Node.js</h3>
+        <p>Runtime</p>
       </div>
 
     </div>
@@ -458,13 +466,15 @@
       const TEXT_AREA = 120;            // px kept clear at the bottom for the name
 
       /* ====== EDIT THESE TO MATCH YOUR FILES ====== */
+      // zoom: makes the logo bigger (>1) or smaller (<1) so every logo looks the same size
       // pattern: folder + prefix + number (padded) + ext
       const CARDS = [
-        { canvas: 'pyFrames',    accent: '#ffd43b', folder: './static/py-jpg/',    prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
-        { canvas: 'reactFrames', accent: '#38d9ff', folder: './static/react-jpg/', prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
-        { canvas: 'apiFrames',   accent: '#00c7a8', folder: './static/api-jpg/',   prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
-        { canvas: 'djFrames',    accent: '#44b78b', folder: './static/dj-jpg/',    prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
-        { canvas: 'sqlFrames',   accent: '#3b8cff', folder: './static/sql-jpg/',   prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 }
+        { canvas: 'pyFrames',    accent: '#ffd43b', zoom: 0.90, folder: './static/py-jpg/',    prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
+        { canvas: 'reactFrames', accent: '#38d9ff', zoom: 0.85, folder: './static/react-jpg/', prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
+        { canvas: 'apiFrames',   accent: '#00c7a8', zoom: 1.35, folder: './static/api-jpg/',   prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
+        { canvas: 'djFrames',    accent: '#44b78b', zoom: 1.70, folder: './static/dj-jpg/',    prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
+        { canvas: 'sqlFrames',   accent: '#3b8cff', zoom: 1.04, folder: './static/sql-jpg/',   prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 },
+        { canvas: 'nodeFrames',   accent: '#6cc24a', zoom: 1.00, folder: './static/node-jpg/',  prefix: 'ezgif-frame-', ext: '.jpg', pad: 3, start: 1, total: 240 }
       ];
       /* ============================================ */
 
@@ -522,7 +532,7 @@
           const dpr = window.devicePixelRatio || 1;
           const cw = canvas.width, ch = canvas.height;
           const rh = ch - TEXT_AREA * dpr;                       // area above the name
-          const r = Math.min(cw / img.naturalWidth, rh / img.naturalHeight) * 1.12;
+          const r = Math.min(cw / img.naturalWidth, rh / img.naturalHeight) * 1.12 * (cfg.zoom || 1);
           const w = img.naturalWidth * r, h = img.naturalHeight * r;
           const x = (cw - w) / 2, y = (rh - h) / 2;
 
