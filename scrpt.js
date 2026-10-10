@@ -101,8 +101,8 @@ const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds wit
 
       function resizeCanvas() {
         const ratio = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = Math.floor(hero.clientWidth * ratio);
-        canvas.height = Math.floor(hero.clientHeight * ratio);
+        canvas.width = Math.floor(canvas.clientWidth * ratio);
+        canvas.height = Math.floor(canvas.clientHeight * ratio);
         drawFrame(currentFrame);
       }
 
@@ -139,6 +139,7 @@ const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds wit
 
       observer.observe(hero);
       window.addEventListener('resize', resizeCanvas, { passive: true });
+      if (window.ResizeObserver) new ResizeObserver(resizeCanvas).observe(canvas);
 
       for (let index = 0; index < frameCount; index += 1) {
         const image = new Image();
