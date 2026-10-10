@@ -3672,3 +3672,91 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* =========================================
+   MOBILE FIX: contact section
+   (column was growing wider than the screen, 3D shape sat on the heading)
+========================================= */
+
+@media (max-width: 860px) {
+
+  /* 1fr alone can't shrink below its content; minmax(0, 1fr) can */
+  .contact-section {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .contact-section > * {
+    min-width: 0;
+  }
+
+  .contact-heading {
+    padding: 42px 20px 0;
+  }
+
+  .contact-subtitle {
+    font-size: 15px;
+  }
+
+  /* 3D shape on top, "Let's build something." underneath it (no overlap) */
+  .contact-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+    padding-bottom: 6px;
+  }
+
+  #contact-canvas {
+    position: relative;
+    inset: auto;
+    flex: none;
+    width: 100%;
+    height: min(76vw, 340px);
+  }
+
+  .contact-stage-copy {
+    position: static;
+    inset: auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .contact-stage-copy h2 {
+    max-width: none;
+    margin: 0;
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .contact-panel {
+    padding: 28px 16px 40px;
+  }
+
+  .contact-panel-inner {
+    min-width: 0;
+    padding: 24px 18px;
+  }
+
+  .contact-available {
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .contact-link {
+    padding: 10px 12px;
+    gap: 12px;
+  }
+
+  /* social pills: tidy 2 x 2 grid */
+  .contact-socials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 6px 16px 32px;
+  }
+
+  .contact-socials a {
+    justify-content: center;
+    padding: 12px 10px;
+  }
+}

@@ -218,6 +218,7 @@ const text = "final-year CS student. backend-leaning full-stack dev.\nbuilds wit
       }
 
       window.addEventListener('resize', resizeContact, { passive: true });
+      if (window.ResizeObserver) new ResizeObserver(resizeContact).observe(contactCanvas);
       resizeContact();
       animateContact();
     }
